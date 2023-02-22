@@ -22,7 +22,7 @@ Route::get('/', function () {
 //membuat halaman tidak bisa tampil sebelum login (->middleware('auth'))
 Route::get('/admin', [AdminController::class, 'index'])->name('index')->middleware('auth');
 
-Route::get('register', [UserController::class, 'register'])->name('register');
+Route::get('register', [UserController::class, 'register'])->name('register')->middleware('auth');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'login_action'])->name('login.action');
